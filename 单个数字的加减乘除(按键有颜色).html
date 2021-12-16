@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .addbox {
+                background-color: aqua;
+                width: 100px;
+            }
+            button {
+                width: 100px;
+                height: 100px;
+                margin-left: 5px;
+                margin-top: 5px;
+                background-color:darkgray;
+                color: aliceblue;
+                font-size: 30px;
+            }
+            .inputBox {
+                margin-left: 5px;
+                width: 320px;
+                height: 50px;
+                border: 2px;
+                background-color:black;
+                font-size: 30px;
+                color: aliceblue;
+                text-align: right;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <div class = "inputBox">
+            <p>0</p>
+        </div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <br>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <br>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <br>
+        <button>0</button>
+        <button>.</button>
+        <button>clean</button>
+        <br>
+        <button>=</button>
+        <button>-</button>
+        <br>
+        <button>*</button>
+        <button>/</button>
+        <button>+</button>
+        <br>
+        <button>Time</button>
+
+        <script type="text/javascript">
+            var dateTime = new Date();
+            var hour = dateTime.getHours();
+            var min = dateTime.getMinutes();
+            var num = 0;
+            var symbol  = '';
+            var btns = document.querySelectorAll('button');
+            var pText = document.querySelectorAll('p');
+            
+            btns[0].addEventListener('click',function (e) {
+                    num = 0;
+                    num = Number(1);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+                });
+            num = '';
+            btns[1].addEventListener('click',function (e) {
+               		num = 0;
+                    num = Number(2);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[2].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    num = Number(3);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[3].addEventListener('click',function (e) {
+                    num = 0;
+                    num = Number(4);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[4].addEventListener('click',function (e) {
+                    num = 0;
+                    num = Number(5);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[5].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    num = Number(6);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[6].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    num = Number(7);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[7].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    num = Number(8);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[8].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    num = Number(9);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            btns[9].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    num = Number(0);
+                    pText[0].innerHTML = num;
+                    console.log(num);
+            });
+            var arr = [];
+            
+            //clean
+            btns[11].style.backgroundColor = 'red';
+            btns[11].addEventListener('click',function (e) {
+                    
+                    num = 0;
+                    pText[0].innerHTML = 0;
+                    arr = [];
+                    console.log(num);
+            });
+            //=
+            btns[12].style.backgroundColor = 'blue';
+            btns[12].style.width = "210px";
+            btns[12].addEventListener('click',function (e) {
+                    
+                arr.push(Number(pText[0].innerHTML));
+                console.log(pText[0].innerHTML); 
+                console.log(arr);
+                var sum = 0;
+
+                if (symbol === '+') {
+                    sum += arr[0]; 
+                    for (var i = 1; i < arr.length; i++) {
+                        sum += arr[i];
+                    } 
+                } else if (symbol === '-') {
+                    sum += arr[0]; 
+                    for (var i = 1; i < arr.length; i++) {
+                        sum -= arr[i];
+                    } 
+                    
+                } else if (symbol === '*') {
+                    sum += arr[0]; 
+                    for (var i = 1; i < arr.length; i++) {
+                        sum *= arr[i];
+                    } 
+                    
+                } else if (symbol === '/') {
+                    sum += arr[0]; 
+                    for (var i = 1; i < arr.length; i++) {
+                        sum /= arr[i];
+                    } 
+                    
+                } else {
+                    console.log('error');
+                }
+
+                
+                pText[0].innerHTML = sum;
+                console.log(sum);
+                arr = [];
+            });
+            
+            //-
+            //var sum = 0;
+            btns[13].style.backgroundColor = 'darkgoldenrod';
+            btns[13].addEventListener('click',function (e) {
+                arr.push(Number(pText[0].innerHTML));
+                symbol = '-';
+                
+            });
+            //*
+            btns[14].style.backgroundColor = 'darkgoldenrod';
+            btns[14].addEventListener('click',function (e) {
+                arr.push(Number(pText[0].innerHTML));
+                symbol = '*';
+            });
+            // /
+            btns[15].style.backgroundColor = 'darkgoldenrod';
+            btns[15].addEventListener('click',function (e) {
+                arr.push(Number(pText[0].innerHTML));
+                symbol = '/';
+            });
+            //+
+            btns[16].style.backgroundColor = 'darkgoldenrod';
+            btns[16].addEventListener('click',function (e) {
+                    
+                    arr.push(Number(pText[0].innerHTML));
+                    symbol = '+';
+            });
+            btns[17].style.backgroundColor = 'blue';
+            btns[17].style.width = '320px';
+            btns[17].addEventListener('click',function (e) {
+                pText[0].innerHTML = hour + ":" + min;
+            });
+
+        </script>
+
+    </body>
+</html>
